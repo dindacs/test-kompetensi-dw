@@ -1,0 +1,39 @@
+{{> header}}
+{{> navbar}}
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4 mt-3">
+      <div class="card">
+        <div class="card-header">
+          Add Provinsi
+        </div>
+        <div class="card-body">
+          <form method="POST" action="/add-provinsi" class="p-4" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="Provinsi" class="form-label">Provinsi</label>
+              <input type="text" class="form-control" id="Provinsi" name="namaProv">
+            </div>
+            <div class="mb-3">
+              <label for="Photo" class="form-label">Diresmikan</label>
+              <input type="date" class="form-control" id="Photo" name="diResmikan">
+            </div>
+            <div class="mb-3">
+              <label for="Photo" class="form-label">Photo</label>
+              <input type="file" class="form-control" id="Photo" name="photo">
+            </div>
+            <div class="mb-3">
+              <label for="Pulau" class="form-label">Pulau</label>
+              <input type="text" class="form-control" id="Pulau" name="pulaunya">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>
+
+{{> footer}}

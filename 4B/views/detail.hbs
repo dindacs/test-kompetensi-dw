@@ -1,0 +1,45 @@
+{{> header}}
+{{> navbar}}
+
+<div class="container mt-5">
+  {{#each provinsiDetail}}
+  <div class="card mb-3 p-5">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{this.photo}}" class="img-fluid rounded-start">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <th>Nama Provinsi</th>
+                <td>:</td>
+                <td>
+                  <h5 class="card-title">{{this.nama_prov}}</h5>
+                </td>
+              </tr>
+              <tr>
+                <th>Tgl Diresmikan</th>
+                <td>:</td>
+                <td>
+                  <p class="card-text">{{this.diresmikan}}</p>
+                </td>
+              </tr>
+              <tr>
+                <th>Pulau</th>
+                <td>:</td>
+                <td>
+                  <p class="card-text">{{this.pulau}}</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+{{> footer}}

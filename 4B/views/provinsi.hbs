@@ -1,0 +1,75 @@
+{{> header}}
+{{> navbar}}
+
+<div class="container mt-4">
+  <a href="/add-provinsi" class="btn btn-success">Add Provinsi</a>
+
+  <table class="table mt-5">
+    <thead>
+      <tr>
+        <th scope="col">Provinsi</th>
+        <th scope="col">Diresmikan</th>
+        <th scope="col">Photo</th>
+        <th scope="col">Pulau</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each provinsies}}
+      <tr>
+        <td>{{this.nama_prov}}</td>
+        <td>{{this.diresmikan}}</td>
+        <td><img src="{{this.photo}}" class="w-25 h-25"></td>
+        <td>{{this.pulau}}</td>
+        <td>
+          <a href="#" type="button" class="btn btn-warning" data-bs-toggle="modal"
+            data-bs-target="#exampleModal{{this.id}}">Edit</a>
+          <a href="/delete-provinsi/{{this.id}}" type="button" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+
+      {{!-- modal edit --}}
+      <div class="modal fade" id="exampleModal{{this.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit Provinsi</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="POST" action="/edit-provinsi" enctype="multipart/form-data">
+                <input type="hidden" class="form-control" name="id" value="{{this.id}}">
+                <div class="mb-3">
+                  <label for="Provinsi" class="form-label">Nama Provinsi</label>
+                  <input type="text" class="form-control" id="Provinsi" name="editName" value="{{this.nama_prov}}">
+                </div>
+                <div class="mb-3">
+                  <label for="Diresmikan" class="form-label">Diresmikan</label>
+                  <input type="date" class="form-control" id="Diresmikan" name="diresmikan" value="{{this.diresmikan}}">
+                </div>
+                <div class="mb-3">
+                  <label for="Photo" class="form-label">Photo</label>
+                  <div>
+                    <img src="{{this.photo}}" class="w-25 h-25 p-3">
+                  </div>
+                  <input type="file" class="form-control" id="Photo" name="photo">
+                </div>
+                <div class="mb-3">
+                  <label for="Pulau" class="form-label">Pulau</label>
+                  <input type="text" class="form-control" id="Pulau" name="pulau" value="{{this.pulau}}">
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-warning">Edit</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+{{> footer}}

@@ -1,0 +1,21 @@
+{{> header}}
+{{> navbar}}
+
+<div class="container mt-5">
+  <div class="row">
+    {{#each provinsies}}
+    <div class="col-lg-3">
+      <div class="card text-center d-flex justify-align-center">
+        <img src="{{this.photo}}" class="card-img-top px-5 py-2">
+        <div class="card-body">
+          <h5 class="card-title">{{this.nama_prov}}</h5>
+          <p class="card-text">{{this.diresmikan}}</p>
+          <a href="/detail/{{this.id}}" class="btn btn-primary">Detail</a>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+{{> footer}}
